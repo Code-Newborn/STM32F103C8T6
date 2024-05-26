@@ -61,12 +61,11 @@ char* _sys_command_string( char* cmd, int len ) {
 /* FILE 在 stdio.h里面定义. */
 FILE __stdout;
 
-/* 重定义fputc函数, printf函数最终会通过调用fputc输出字符串到串口 */
+// 重定义fputc函数, printf函数最终会通过调用fputc输出字符串到串口
 int fputc( int ch, FILE* f ) {
-    while ( __HAL_UART_GET_FLAG( &huart1, UART_FLAG_TC ) == RESET )
-        ; /* 等待上一个字符发送完成 */
-
-    USART1->DR = ( uint8_t )ch; /* 将要发送的字符 ch 写入到DR寄存器 */
+    while ( ( USART1->SR & 0X40 ) == 0 )
+        ;  // 循环发送,直到发送完毕
+    USART1->DR = ( uint8_t )ch;
     return ch;
 }
 
