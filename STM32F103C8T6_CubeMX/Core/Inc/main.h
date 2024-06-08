@@ -50,20 +50,25 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler( void );
+void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin             GPIO_PIN_13
-#define LED_GPIO_Port       GPIOC
-#define IR_remote_Pin       GPIO_PIN_9
+#define LED_Pin GPIO_PIN_13
+#define LED_GPIO_Port GPIOC
+#define IR_remote_Pin GPIO_PIN_9
 #define IR_remote_GPIO_Port GPIOB
 #define IR_remote_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
+
+#define Rx_Max 1024
+extern uint8_t  Rx_Flag;
+extern uint16_t Rx_Len;
+extern uint8_t  Rx_Buf[ Rx_Max ];
 
 /* USER CODE END Private defines */
 

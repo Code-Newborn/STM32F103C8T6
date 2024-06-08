@@ -38,7 +38,7 @@ extern TIM_HandleTypeDef htim1;
 
 /* USER CODE END Private defines */
 
-void MX_TIM1_Init( void );
+void MX_TIM1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void delay_us( uint16_t us );
@@ -49,3 +49,4 @@ void delay_us( uint16_t us );
 #endif
 
 #endif /* __TIM_H__ */
+
