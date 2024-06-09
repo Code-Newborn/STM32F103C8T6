@@ -246,7 +246,7 @@ void Leaf_Deal_Frame( unsigned char* buf, int len ) {
         {
             // 成功
             Get_File_Ok();
-            Set_Start_Mode( Startup_Normol );
+            Set_Start_Mode( Startup_Normol );  // 正常启动模式
             printf( "> File ok!, restart...\r\n" );
             HAL_NVIC_SystemReset();
         }

@@ -6,12 +6,14 @@
 
 #define PageSize FLASH_PAGE_SIZE  // 1K
 
-#define BootLoader_addr    0x08000000U  ///< BootLoader的首地址
+// Boot 出厂程序中修改IROM 大小要小于 Application_1_Addr - BootLoader_addr = 0x5000U
+#define BootLoader_addr 0x08000000U  ///< BootLoader的首地址
+#define BootLoader_Size 0x5000U      ///< BootLoader的大小 20K
+
+// APP 升级程序中修改IROM 大小要小于 Application_2_Addr - Application_1_Addr
 #define Application_1_Addr 0x08005000U  ///< 应用程序1的首地址
 #define Application_2_Addr 0x0800F000U  ///< 应用程序2的首地址
-
-#define BootLoader_Size  0x5000U  ///< BootLoader的大小 20K
-#define Application_Size 0xA000U  ///< 应用程序的大小 40K
+#define Application_Size   0xA000U      ///< 应用程序的大小 40K
 
 
 /* 启动的步骤 */

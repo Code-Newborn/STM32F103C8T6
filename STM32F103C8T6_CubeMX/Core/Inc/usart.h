@@ -40,8 +40,8 @@ extern UART_HandleTypeDef huart2;
 
 /* USER CODE END Private defines */
 
-void MX_USART1_UART_Init(void);
-void MX_USART2_UART_Init(void);
+void MX_USART1_UART_Init( void );
+void MX_USART2_UART_Init( void );
 
 /* USER CODE BEGIN Prototypes */
 
@@ -52,4 +52,3 @@ void MX_USART2_UART_Init(void);
 #endif
 
 #endif /* __USART_H__ */
-
