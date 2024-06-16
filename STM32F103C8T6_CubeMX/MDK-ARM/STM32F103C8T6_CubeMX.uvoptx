@@ -160,6 +160,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>receive_Flag</ItemText>
         </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>--free_time_delay</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>

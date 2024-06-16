@@ -18,9 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "gpio.h"
 #include "tim.h"
 #include "usart.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -32,6 +32,9 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
+
+uint32_t free_time_delay;
 
 /* USER CODE END PTD */
 
@@ -100,14 +103,50 @@ int main( void ) {
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while ( 1 ) {
-        if ( receive_Flag == 1 ) {
-            receive_Flag = 0;
-            printf( "IR Received Code: %0.8x\r\n", receive_Code );
-            receive_Code = 0;
-        }
 
-        HAL_GPIO_TogglePin( LED_GPIO_Port, LED_Pin );
-        HAL_Delay( 200 );
+        /*旋转 8步*/
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
+        // 1
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_SET );
+        // 2
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        // 3
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_SET );
+        // 4
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        // 5
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_SET );
+        // 6
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        // 7
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
+        // 8
+        free_time_delay = 240000;
+        while ( --free_time_delay > 0 )
+            ;
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
