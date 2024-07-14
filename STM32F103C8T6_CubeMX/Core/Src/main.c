@@ -104,48 +104,56 @@ int main( void ) {
     /* USER CODE BEGIN WHILE */
     while ( 1 ) {
 
-        /*旋转 8步*/
-        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
-        // 1
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_SET );
-        // 2
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
-        // 3
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_SET );
-        // 4
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
-        // 5
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
+        uint32_t temp = 1;
+
+        // 8拍驱动 28BYJ-48 五线四相
         HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_SET );
-        // 6
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
-        // 7
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
-        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
-        // 8
-        free_time_delay = 240000;
-        while ( --free_time_delay > 0 )
-            ;
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        HAL_Delay( temp );
+
         HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_SET );
+        HAL_Delay( temp );
+
+        HAL_GPIO_WritePin( IN1_GPIO_Port, IN1_Pin, GPIO_PIN_SET );
+        HAL_GPIO_WritePin( IN2_GPIO_Port, IN2_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN3_GPIO_Port, IN3_Pin, GPIO_PIN_RESET );
+        HAL_GPIO_WritePin( IN4_GPIO_Port, IN4_Pin, GPIO_PIN_RESET );
+        HAL_Delay( temp );
 
         /* USER CODE END WHILE */
 
